@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { PokemonService } from 'src/app/services/pokemon/pokemon.service';
+import { Pokemon } from 'src/app/Models/pokemon';
 
 @Component({
   selector: 'app-result',
@@ -10,10 +12,12 @@ import { NavController } from '@ionic/angular';
 export class ResultPage implements OnInit {
 
   termo: string = ""
+  pokemon: Pokemon
   
   constructor(
     protected route: ActivatedRoute,
-    protected nav: NavController
+    protected nav: NavController,
+    protected pokemonService: PokemonService
   ) { 
     
     this.route.params.subscribe(res => {
@@ -21,8 +25,12 @@ export class ResultPage implements OnInit {
     })
   }
 
-  ngOnInit() {
-    console.log("Termo de busca: ", this.termo);
+  async ngOnInit() {
+    await this.fetchPokemon();
+  }
+
+  async fetchPokemon(){
+   this.pokemon = await this.pokemonService.getPokemon(this.termo);
   }
 
   back(){

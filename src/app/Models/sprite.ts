@@ -1,4 +1,5 @@
 export class Sprite{
+    
     back_default: string
     back_female: string;
     back_shiny: string;

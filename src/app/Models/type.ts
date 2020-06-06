@@ -1,4 +1,5 @@
 export class Type {
+    
     slot: number;
     name: string;
 

@@ -25,6 +25,9 @@
 
 .img-container{
     width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .placeholder{
         width: 100%;
