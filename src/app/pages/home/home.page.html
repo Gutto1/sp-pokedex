@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>SP - Pokédex</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div class="img-container">
+      <img src="../../../assets/imgs/logo.png" alt="Logotipo pokebola">
+    </div>
+  
+    <ion-item class="input-container">
+      <ion-label position="floating">Nome ou numero do pokemon</ion-label>
+      <ion-input [(ngModel)]="termo"></ion-input>
+    </ion-item>
+    
+    <div class="button-container">
+      <ion-button fill="solid" expand="block" (click)="buscar()">
+        <span> Buscar </span>
+        <ion-icon name="search" slot="end"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

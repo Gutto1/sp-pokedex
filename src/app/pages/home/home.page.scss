@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; //Vertical
+    align-items: center; //Horizontal
+    height: 80vh; //View Height
+}
+
+.img-container{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+
+    img{
+        width: 60%;
+    }
+}
+
+.input-container{
+    width: 80%;
+}
+
+.button-container{
+    width: 80%;
+}
