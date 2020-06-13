@@ -9,24 +9,44 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="!notFound">
   <div class="container">
 
     <div class="img-container">
       <img [src]="pokemon.sprites.front_default" 
-        alt="imagem do pokemon" *ngIf="pokemon && pokemon.sprites.front_default" />
+        alt="imagem do pokemon" *ngIf="!loading" />
+      <p *ngIf="!loading" class="pokemon-name">
+        {{ pokemon.name }}
+      </p>
 
-      <div class="placeholder" *ngIf="!pokemon"> </div>
+      <div class="placeholder" *ngIf="loading"> </div>
     </div>
 
     <div class="text-container">
-      <p *ngIf="false"></p>
-      <div class="placeholder"> </div>
+     
+      <p *ngIf="!loading">
+        {{ flavor_text }}
+      </p>
+      <div class="placeholder" *ngIf="loading"></div>
     </div>
 
-    <div class="type-container">
+    
+    <div class="type-container" *ngIf="loading">
       <div class="placeholder type"></div>
       <div class="placeholder type"></div>
     </div>
+
+    <div class="type-container" *ngIf="!loading">
+      <div *ngFor="let type of pokemon.types" style="width: 40%">
+        <type-component [type]="type.name"></type-component>
+      </div>
+    </div>
   </div>  
+</ion-content>
+
+<ion-content *ngIf="notFound && !loading">
+  <img src="../../../assets/imgs/404_pikachu.png" alt="">
+  <div style="text-align: center; font-size: 1.6em;">
+    <span>Pokemon não encontrado</span>
+  </div>
 </ion-content>

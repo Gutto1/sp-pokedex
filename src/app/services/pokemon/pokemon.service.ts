@@ -13,16 +13,23 @@ export class PokemonService {
   ) { }
 
 
+  //public functions
   public async getPokemon(value: string){
     return await this.api.get("pokemon", value)
       .then(res => this.formatResult(res))
       .catch(err => Promise.reject(err));
   }
 
+  public async getDescription(value: string){
+    return await this.api.get("pokemon-species", value)
+      .then(res => this.formatDescription(res))
+      .catch(err => Promise.reject(err))
+  }
 
 
+
+  //private functions
   private formatResult(res){
-      console.log(res);
       let pokemon: Pokemon;
       let types: Array<Type>;
 
@@ -33,6 +40,23 @@ export class PokemonService {
     pokemon = new Pokemon(res.id,res.name,types,res.sprites)
 
     return pokemon;
+  }
+
+  private formatDescription(res){
+    if(res && res.flavor_text_entries.length > 0){
+
+      let retorno = res.flavor_text_entries.map(i => {
+        if (i.language.name === 'en'){
+          return i;
+        }
+      });
+
+      retorno = retorno.filter( i => i)
+
+      
+      return retorno[0].flavor_text.replace(""," ")
+    }
+    return ""
   }
 
 }

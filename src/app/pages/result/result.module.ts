@@ -7,14 +7,20 @@ import { IonicModule } from '@ionic/angular';
 import { ResultPageRoutingModule } from './result-routing.module';
 
 import { ResultPage } from './result.page';
+import { TypeComponentModule } from 'src/app/components/type/type.component.module';
+import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ResultPageRoutingModule
+    ResultPageRoutingModule,
+    TypeComponentModule
   ],
-  declarations: [ResultPage]
+  declarations: [ResultPage],
+  providers: [
+    TextToSpeech
+  ]
 })
 export class ResultPageModule {}

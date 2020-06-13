@@ -23,9 +23,15 @@
     
 }
 
+.pokemon-name{
+    font-size: 1.5em;
+    text-transform: capitalize;
+}
+
 .img-container{
     width: 80%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -61,6 +67,10 @@
         width: 40%;
         height: 35px;
     }
+}
+
+type-component{
+    width: 100%;
 }
 
 
