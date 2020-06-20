@@ -73,6 +73,27 @@ type-component{
     width: 100%;
 }
 
+.centered{
+    justify-content: center !important;
+}
+
+.one-type{
+    width: 75%;
+}
+
+.two-type{
+    width: 45%;
+}
+
+.animationholder{
+    display: block;
+    position: fixed;
+    left: 150%;
+    top: 60px;
+    width: 150%;
+    height: 80vh;
+    background: #FFFFFF;
+}
 
 @keyframes bgPulse{
     0% {background: #666}

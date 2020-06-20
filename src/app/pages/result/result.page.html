@@ -10,8 +10,8 @@
 </ion-header>
 
 <ion-content *ngIf="!notFound">
-  <div class="container">
-
+  <div class="container" #container>
+    <div class="animationholder" #holder></div>
     <div class="img-container">
       <img [src]="pokemon.sprites.front_default" 
         alt="imagem do pokemon" *ngIf="!loading" />
@@ -36,8 +36,8 @@
       <div class="placeholder type"></div>
     </div>
 
-    <div class="type-container" *ngIf="!loading">
-      <div *ngFor="let type of pokemon.types" style="width: 40%">
+    <div class="type-container" *ngIf="!loading" [ngClass]="{'centered': pokemon.types.length == 1}">
+      <div *ngFor="let type of pokemon.types" [ngClass]="{'one-type': pokemon.types.length == 1, 'two-type': pokemon.types.length > 1}">
         <type-component [type]="type.name"></type-component>
       </div>
     </div>
